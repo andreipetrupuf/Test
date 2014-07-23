@@ -1,0 +1,917 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Spring</title>
+  <link rel="alternate" href="https://spring.io/blog" />
+  <link rel="self" href="https://spring.io/blog.atom" />
+  <id>http://spring.io/blog.atom</id>
+  <icon>https://spring.io/favicon.ico</icon>
+  <updated>2014-07-23T02:26:26Z</updated>
+  <entry>
+    <title>This Week in Spring - July 22nd, 2014</title>
+    <link rel="alternate" href="https://spring.io/blog/2014/07/23/this-week-in-spring-july-22nd-2014" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2014-07-23:1694</id>
+    <updated>2014-07-23T02:26:26Z</updated>
+    <content type="html">&lt;p&gt;Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt;! This week we're at OSCON in beautiful Portland, OR! It's been a &lt;em&gt;crazy&lt;/em&gt; busy week, and only figures to be busier! It's been nice visiting with colleagues and community members alike. The booth on the expo floor has been &lt;em&gt;flooded&lt;/em&gt; with users. I love this show. :) &lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;First, the big news: &lt;a href="http://spring.io/blog/2014/07/21/spring-framework-4-1-release-candidate-available"&gt;the Spring framework 4.1 release candidate is now available&lt;/a&gt;! The new release features updated JSR-107 support, JMS 2.0 and annotation-centric JMS configuration,  a SpEL compiler, and &lt;em&gt;so&lt;/em&gt; much more.&lt;br&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="http://spring.io/blog/2014/07/18/spring-xd-1-0-0-rc1-released"&gt;Spring XD co-lead Dr. Mark Pollack has just announced that Spring XD RC1 is now available&lt;/a&gt;. &lt;a href="http://github.com/spring-projects/spring-xd/wiki/Getting-Started#osx-homebrew-installation"&gt;Installation is dead-simple&lt;/a&gt;. There are numerous new features, and this train's moving fast so check it out, download the bits, kick the tires, etc.&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="http://twitter.com/stroblchristoph"&gt;Spring Data ninja Christoph Strobl&lt;/a&gt; put together a nice blog post &lt;a href="http://spring.io/blog/2014/07/17/text-search-your-documents-with-spring-data-mongodb"&gt;introducing Spring Data MongoDB's full-text search&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;The &lt;a href="http://apieceofmycode.blogspot.com/2014/07/spring-integration-testing-under-spring.html"&gt;A Piece of My Code blog&lt;/a&gt; looks at how to use Spring's integration testing with mock services.&lt;/li&gt;
+&lt;li&gt;Tousif Khan has put together &lt;a href="http://java.dzone.com/articles/spring-mvc-3-view-controller"&gt;a nice post on Spring's &lt;em&gt;view controllers&lt;/em&gt;&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;The &lt;em&gt;Tech Zoo&lt;/em&gt; blog wrote up how to &lt;a href="http://www.techzoo.org/spring-framework/spring-mvc-tiles-3-integration-tutorial.html"&gt; use Spring's Apache Tiles support&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;The &lt;em&gt;softwarecave&lt;/em&gt; blog introduces how to handle &lt;a href="http://softwarecave.org/2014/07/19/charts-with-jqplot-spring-rest-ajax-and-jquery/"&gt;charts with jqPlot, Spring's REST support, AJAX and JQuery&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;Theodora Fragkouli has written up a &lt;a href="http://examples.javacodegeeks.com/enterprise-java/spring/mvc/spring-mvc-form-errors-tag-example/"&gt;nice post on using Spring MVC's &lt;code&gt;Errors&lt;/code&gt; tag&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;I've just stumbled upon this JavaCodeGeeks &lt;a href="http://academy.javacodegeeks.com/news/spring-data-and-redis/"&gt;academy trail on using Spring Data Redis&lt;/a&gt; - looks interesting. &lt;/li&gt;
+&lt;li&gt;Want to use Spring, Hibernate 4, and Ehache together? &lt;a href="http://www.hevi.info/2014/07/maven-3-hibernate-4-spring-3-ehcache-spring-cache/"&gt;Check out this tutorial&lt;/a&gt;. &lt;/li&gt;
+&lt;/ol&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Framework 4.1 release candidate available</title>
+    <link rel="alternate" href="https://spring.io/blog/2014/07/21/spring-framework-4-1-release-candidate-available" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Juergen Hoeller</name>
+    </author>
+    <id>tag:spring.io,2014-07-19:1692</id>
+    <updated>2014-07-21T11:00:00Z</updated>
+    <content type="html">&lt;p&gt;Dear Spring community,&lt;/p&gt;
+
+&lt;p&gt;It's my pleasure to announce that the first Spring Framework 4.1 release candidate is available now. Our 4.1 delivers a wide range of new features along the following themes:&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Annotated JMS listener methods and support for JMS 2.0's shared subscriptions&lt;b&gt;&lt;/b&gt;&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;As well as general alignment of Spring's JMS support with our spring-messaging module.
+&lt;a href="https://spring.io/blog/2014/04/30/spring-4-1-s-upcoming-jms-improvements"&gt;https://spring.io/blog/2014/04/30/spring-4-1-s-upcoming-jms-improvements&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Comprehensive support for JCache (JSR-107) annotations and related features&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://spring.io/blog/2014/04/14/cache-abstraction-jcache-jsr-107-annotations-support"&gt;https://spring.io/blog/2014/04/14/cache-abstraction-jcache-jsr-107-annotations-support&lt;/a&gt;
+&lt;a href="https://spring.io/blog/2014/06/16/further-cache-improvements-in-spring-4-1"&gt;https://spring.io/blog/2014/06/16/further-cache-improvements-in-spring-4-1&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;A compiler mode for the Spring Expression Language (SpEL)&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;SpEL allows for selective compilation of hotspot expressions into Java bytecode at runtime.
+Set the "spring.expression.compiler.mode" property to "immediate" or "mixed" and see...&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Flexible resolution and transformation of static web resources&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;See the &lt;a href="http://docs.spring.io/spring-framework/docs/4.1.0.RC1/javadoc-api/org/springframework/web/servlet/resource/package-summary.html"&gt;package javadocs of org.springframework.web.servlet.resource&lt;/a&gt; for an initial overview. Stay tuned for further coverage later this week...&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Web MVC support for Groovy markup templates&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;A Spring MVC View implementation based on &lt;a href="http://jira.codehaus.org/browse/GROOVY-6596"&gt;http://jira.codehaus.org/browse/GROOVY-6596&lt;/a&gt;.
+Further coverage to follow...&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;And many refinements in other areas, for example:&lt;/b&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Java 8's Optional type for injection points and MVC handler method parameters&lt;/li&gt;
+&lt;li&gt;Direct field binding support for nested fields and auto-growing of nested field paths&lt;/li&gt;
+&lt;li&gt;Declarative MVC view resolution setup, support for Jackson's JsonView mechanism&lt;/li&gt;
+&lt;li&gt;A WebSocket scope, SockJS client support, and exposing STOMP/WebSocket stats&lt;/li&gt;
+&lt;li&gt;Declarative SQL scripts and programmatic transactions in the TestContext framework&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;Please give 4.1 RC1 a try! Explore the new features or do some regression testing - we'd like to know how it goes. RC2 is then planned for mid August; GA for the first week of September.&lt;/p&gt;
+
+&lt;p&gt;Cheers,&lt;/p&gt;
+
+&lt;p&gt;Juergen&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring XD 1.0.0.RC1 Released</title>
+    <link rel="alternate" href="https://spring.io/blog/2014/07/18/spring-xd-1-0-0-rc1-released" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Mark Pollack</name>
+    </author>
+    <id>tag:spring.io,2014-07-18:1691</id>
+    <updated>2014-07-18T20:49:00Z</updated>
+    <content type="html">&lt;p&gt;The Spring XD team is pleased to announce that Spring XD Release Candidate 1 is now &lt;a href="http://repo.spring.io/simple/libs-milestone-local/org/springframework/xd/spring-xd/1.0.0.RC1/spring-xd-1.0.0.RC1-dist.zip"&gt;available for download&lt;/a&gt;.  You can also install Spring XD on OSX &lt;a href="https://github.com/spring-projects/spring-xd/wiki/Getting-Started#osx-homebrew-installation"&gt;using homebrew&lt;/a&gt; and on RHEL/CentOs &lt;a href="https://github.com/spring-projects/spring-xd/wiki/Getting-Started#redhatcentos-installation"&gt;using yum&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Highlights of this release&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href="https://github.com/spring-projects/spring-xd/wiki/Deployment#direct-binding"&gt;Direct binding&lt;/a&gt;: Deployments can be configured to avoid modules sending data over the Message Bus if they are co-located in the same container.   Using this option increases throughput and lowers latency but can not be applied to all deployment topologies.&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="https://github.com/spring-projects/spring-xd/wiki/Deployment#deployment-states"&gt;Stream Deployment State&lt;/a&gt;: The state of stream is calculated throughout the lifetime of the deployment.   For example, if a subset of the modules that comprise a stream have failed, the overall state of the stream changes from Deployed to Incomplete.  Once the failures have been addressed, the state of the stream returns to Deployed.&lt;/li&gt;
+&lt;li&gt;Improved &lt;a href="https://github.com/spring-projects/spring-xd/wiki/REST-API"&gt;REST API&lt;/a&gt;: The URI structure has been made more consistent for job management.&lt;/li&gt;
+&lt;li&gt;Support for Rabbit &lt;a href="https://www.rabbitmq.com/ha.html"&gt;HA&lt;/a&gt; and &lt;a href="https://www.rabbitmq.com/ssl.html"&gt;SSL&lt;/a&gt; configuration.  You can now use mirrored queues to improve the availability of the Message Bus in case of failures. Rabbit Source and Sink modules also support &lt;a href="https://github.com/spring-projects/spring-xd/wiki/MessageBus#rabbit-message-bus-high-availability-ha-configuration"&gt;these options&lt;/a&gt;.&lt;br&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="http://docs.spring.io/platform/docs/1.0.1.RELEASE/reference/html/"&gt;Spring IO Platform 1.0.1 Compliant&lt;/a&gt;: User contributed modules or extensions to the servers can rely on the Spring IO platform to select the correct versions of dependent libraries.&lt;/li&gt;
+&lt;li&gt;HTTP source improvements: Now support &lt;a href="https://github.com/spring-projects/spring-xd/wiki/Sources#http-with-options"&gt;HTTPS&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Support partitioning for filejdbc job.&lt;/li&gt;
+&lt;li&gt;Added &lt;a href="https://github.com/spring-projects/spring-xd/wiki/Sinks#mongo"&gt;MongoDB sink&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;UI enchancements.&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="https://github.com/spring-projects/spring-xd/wiki/Running-Distributed-Mode#using-hadoop"&gt;Support for Hadoop 2.4.1&lt;/a&gt; in addition to five other versions.&lt;/li&gt;
+&lt;li&gt;Reduced distribution footprint.&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;The Spring XD &lt;a href="http://projects.spring.io/spring-xd/"&gt;project home&lt;/a&gt; is the central hub for learning more about Spring XD.  Some useful links are the &lt;a href="http://docs.spring.io/spring-xd/docs/1.0.0.RC1/reference/html/"&gt;reference docs&lt;/a&gt;, &lt;a href="https://github.com/spring-projects/spring-xd-samples"&gt;sample applications&lt;/a&gt;, and &lt;a href="https://spring.io/blog/2013/11/20/qcon-sf-2013-session-replay-introducing-spring-xd"&gt;QCon SF 2013 Session Replay: Introducing Spring XD&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We look forward to your comments and feedback:  &lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href="http://stackoverflow.com/questions/tagged/spring-xd"&gt;StackOverflow&lt;/a&gt; &lt;code&gt;spring-xd&lt;/code&gt; tag&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://jira.spring.io/browse/XD"&gt;Spring JIRA&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;&lt;strong&gt;SpringOne 2GX 2014 is around the corner&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Book your place at &lt;a href="http://www.springone2gx.com/"&gt;SpringOne in Dallas, TX&lt;/a&gt; for Sept 8-11 soon. It's simply the best opportunity to find out first hand all that's going on and to provide direct feedback.   There will be deep dive sessions on Spring XD along with general Big Data talks to provide an introduction to the landscape and challenges in developing Big Data applications.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>$text $search your Documents with Spring Data MongoDB</title>
+    <link rel="alternate" href="https://spring.io/blog/2014/07/17/text-search-your-documents-with-spring-data-mongodb" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Christoph Strobl</name>
+    </author>
+    <id>tag:spring.io,2014-07-02:1661</id>
+    <updated>2014-07-17T12:52:00Z</updated>
+    <content type="html">&lt;p&gt;MongoDB officially has offered full text search capabilities since its 2.6 release. The feature ranks among the &lt;a href="https://jira.mongodb.org/issues/?jql=project%20%3D%20SERVER%20AND%20issuetype%20%3D%20%22New%20Feature%22%20ORDER%20BY%20votes%20DESC"&gt;Top 5&lt;/a&gt; most voted features for the server component and ships in its current version with numerous stemmers and parsers, phrase matching, negation and per field weights. So it's about time to give it a little love and share what's cooking in Spring Data's kitchen to support that feature.&lt;/p&gt;
+
+&lt;p&gt;For text indexing and searching MongoDB defaults the language to English, normalizing the text by tokenizing, removing common stop words and reducing words to their base. There's support for several other languages as well.&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;a name="user-content-manually-build-text-indexes" class="anchor" href="#manually-build-text-indexes" aria-hidden="true"&gt;&lt;span class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Manually build text indexes&lt;/h2&gt;
+
+&lt;div class="highlight highlight-java"&gt;&lt;pre&gt;&lt;span class="nd"&gt;@Document&lt;/span&gt;
+&lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;CookingRecipe&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+  &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;content&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Here we've got a very simple entity &lt;code&gt;CookingRecipe&lt;/code&gt; and want to have a text index based on its &lt;code&gt;title&lt;/code&gt; and &lt;code&gt;content&lt;/code&gt; fields, putting some weight of 2 to search hits in &lt;code&gt;title&lt;/code&gt;. Attaching weights to fields allows you to influence relevancy of a document when being looked up. It defines the significance of a field relative to others, boosting the documents score. In this case it doubles the documents relevance when hitting a match in &lt;code&gt;title&lt;/code&gt;. The raw MongoDB index definition would look something like this:&lt;/p&gt;
+
+&lt;div class="highlight highlight-javascript"&gt;&lt;pre&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="nx"&gt;title&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"text"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="nx"&gt;content&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"text"&lt;/span&gt;
+&lt;span class="p"&gt;},&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="nx"&gt;weights&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nx"&gt;title&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;As of version 1.5 M1 of Spring Data MongoDB we can create a text index, capturing the fields we want to have full text search enabled on, manually.&lt;/p&gt;
+
+&lt;div class="highlight highlight-java"&gt;&lt;pre&gt;&lt;span class="n"&gt;TextIndexDefinition&lt;/span&gt; &lt;span class="n"&gt;textIndex&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nf"&gt;TextIndexDefinitionBuilder&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;
+  &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;onField&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"title"&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="n"&gt;F&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+  &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;onField&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"content"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+  &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;build&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
+
+&lt;span class="n"&gt;MongoTemplate&lt;/span&gt; &lt;span class="n"&gt;template&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;…&lt;/span&gt; &lt;span class="c1"&gt;// obtain MongoTemplate&lt;/span&gt;
+&lt;span class="n"&gt;template&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;indexOps&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;CookingRecipe&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="o"&gt;).&lt;/span&gt;&lt;span class="na"&gt;ensureIndex&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;textIndex&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Alternatively, let the index be created automatically using mapping annotations. All we need to do is adding a few hints on the domain class and we are good to go.&lt;/p&gt;
+
+&lt;div class="highlight highlight-java"&gt;&lt;pre&gt;&lt;span class="nd"&gt;@Document&lt;/span&gt;
+&lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;CookingRecipe&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+  &lt;span class="nd"&gt;@TextIndexed&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;weight&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+  &lt;span class="nd"&gt;@TextIndexed&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;content&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Please note that it is only possible to have one  full text index per collection. Now that we've created the index we'll query the top 5 recipes matching "coffee" or "cake".&lt;/p&gt;
+
+&lt;div class="highlight highlight-java"&gt;&lt;pre&gt;&lt;span class="n"&gt;TextCriteria&lt;/span&gt; &lt;span class="n"&gt;criteria&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;TextCriteria&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;forDefaultLanguage&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;
+  &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;matchingAny&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"coffee"&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="s"&gt;"cake"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+
+&lt;span class="n"&gt;Query&lt;/span&gt; &lt;span class="n"&gt;query&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;TextQuery&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;queryText&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;criteria&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+  &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;sortByScore&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;
+  &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;with&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nf"&gt;PageRequest&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="o"&gt;));&lt;/span&gt;
+
+&lt;span class="n"&gt;List&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;CookingRecipe&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;recipes&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;template&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;find&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;query&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;CookingRecipe&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Note that we provide dedicated types &lt;code&gt;TextCriteria&lt;/code&gt; and &lt;code&gt;TextQuery&lt;/code&gt; to express searches in full detail. &lt;/p&gt;
+
+&lt;h2&gt;
+&lt;a name="user-content-scoring" class="anchor" href="#scoring" aria-hidden="true"&gt;&lt;span class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Scoring&lt;/h2&gt;
+
+&lt;p&gt;As mentioned earlier, documents get scored while searching. The &lt;code&gt;score&lt;/code&gt; value is not returned by default, but since this information is often helpful we can include it in the output by adding &lt;code&gt;{ score :  { $meta : "textScore" } }&lt;/code&gt; to the projection, which is implicitly done by calling &lt;code&gt;query.sortByScore()&lt;/code&gt;. To access the score in the resulting documents we add a &lt;code&gt;@TextScore&lt;/code&gt; annotated property to &lt;code&gt;CookingRecipe&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class="highlight highlight-java"&gt;&lt;pre&gt;&lt;span class="nd"&gt;@Document&lt;/span&gt;
+&lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;CookingRecipe&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+  &lt;span class="nd"&gt;@TextIndexed&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;weight&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+  &lt;span class="nd"&gt;@TextIndexed&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;content&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+  &lt;span class="nd"&gt;@TextScore&lt;/span&gt; &lt;span class="n"&gt;Float&lt;/span&gt; &lt;span class="n"&gt;score&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The &lt;code&gt;@TextScore&lt;/code&gt; annotation implicitly turns the &lt;code&gt;score&lt;/code&gt; property into a read-only property due to the &lt;code&gt;@ReadOnlyProperty&lt;/code&gt; annotation the annotation carries in turn. The latter can be used in other contexts as well where you'd like make sure fields from a document are only read but never written.&lt;/p&gt;
+
+&lt;p&gt;Additional resources on &lt;a href="http://docs.mongodb.org/manual/reference/operator/query/text/#behavior"&gt;behavior and restrictions&lt;/a&gt;, as well as &lt;a href="http://docs.mongodb.org/manual/reference/text-search-languages"&gt;supported languages&lt;/a&gt; can be found in the &lt;a href="http://docs.mongodb.org/manual/reference/"&gt;MongoDB reference&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Moving forward with release train &lt;a href="https://github.com/spring-projects/spring-data-commons/wiki/Release-Train-Evans"&gt;Evans&lt;/a&gt; we will be adding text search support to &lt;code&gt;MongoRepositories&lt;/code&gt;.&lt;/p&gt;
+
+&lt;hr&gt;&lt;p&gt;If you want to learn more about Spring Data, be sure to &lt;a href="https://2014.event.springone2gx.com/register"&gt;register&lt;/a&gt; for this year's SpringOne conference. The &lt;a href="https://2014.event.springone2gx.com/schedule/2014-09-09"&gt;schedule&lt;/a&gt; contains a lot of data-related talks to introduce you to the latest features we're going to ship with Evans.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>This Week in Spring - July 15th, 2014</title>
+    <link rel="alternate" href="https://spring.io/blog/2014/07/15/this-week-in-spring-july-15th-2014" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2014-07-15:1688</id>
+    <updated>2014-07-15T20:38:00Z</updated>
+    <content type="html">&lt;p&gt;Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt;! It's been a crazy week and next week figures to be even crazier! Some of us on the Spring team - including Spring Boot co-lead &lt;a href="http://spring.io/team/pwebb"&gt;Phill Webb&lt;/a&gt;,  Spring Batch lead &lt;a href="http://spring.io/team/mminella"&gt;Michael Minella&lt;/a&gt; and myself, will be at &lt;a href="http://oscon.com"&gt;OSCON&lt;/a&gt; next week, so if you're in the area and at the show come say hi! We'll be at the booth at various hours, too. &lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Spring Batch lead Michael Minella &lt;a href="http://spring.io/blog/2014/07/10/spring-batch-releases-and-a-new-repository"&gt;has just announced Spring Batch 3.0.1&lt;/a&gt;, and a new &lt;a href="https://github.com/spring-projects/spring-batch-extensions"&gt;Spring Batch extensions repository&lt;/a&gt; which itself houses new integrations with Spring Batch. The first contribution is an &lt;code&gt;ItemReader&lt;/code&gt; and &lt;code&gt;ItemWriter&lt;/code&gt; for &lt;a href="https://github.com/spring-projects/spring-batch-extensions/tree/master/spring-batch-elasticsearch"&gt;Elasticsearch&lt;/a&gt;. Nice!&lt;/li&gt;
+&lt;li&gt;Spring Data ninja Thomas Darimont has just &lt;a href="http://spring.io/blog/2014/07/15/spel-support-in-spring-data-jpa-query-definitions"&gt;announced support for SpEL in Spring Data JPA &lt;code&gt;@Query&lt;/code&gt; annotations&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;Spring and Groovy Tool Suite lead Martin Lippert has just announced &lt;a href="http://spring.io/blog/2014/07/11/spring-tool-suite-and-groovy-grails-tool-suite-3-6-0-released"&gt;Spring Tool Suite 3.6.0 and Groovy Tool Suite 3.6.0&lt;/a&gt;, based on Eclipse Luna 4.4, with support for Groovy 2.3, Grails 2.4, tc Server 2.9.6, and other minor improvements and bugfixes. &lt;/li&gt;
+&lt;li&gt;Spring Data ninja Christoph Strobl has just &lt;a href="http://spring.io/blog/2014/07/10/first-milestone-of-spring-data-release-train-evans-available"&gt;announced Spring Data Evans m1, in which many new revisions are included&lt;/a&gt;. &lt;/li&gt;
+&lt;li&gt;Speaking of the first milestone of Spring Data Evans, Spring Data REST ninja Greg Turnquist has just announced that   Spring Data Evans M1 milestone   comes with &lt;a href="http://spring.io/blog/2014/07/14/spring-data-rest-now-comes-with-alps-metadata"&gt;ALPS metadata support&lt;/a&gt;. FTA: &lt;em&gt;ALPS provides a way to interrogate a RESTful service to find out about the data it serves. Let's look at a quick example. If you clone the TODO repo and run mvn spring-boot:run, you can surf it's values pretty easily&lt;/em&gt;. So.. check it out! I know many have been asking about simialar support. &lt;/li&gt;
+&lt;li&gt;Check out this upcoming webinar by &lt;a href="http://spring.io/blog/2014/06/12/webinar-why-do-i-recommend-spring"&gt;Michael Plod on why he recommends Spring&lt;/a&gt; - learn the technology (and a bit of the business) case! Michael is a great speaker and frequently appears at conferences. Register now for the event on July 22nd. &lt;/li&gt;
+&lt;li&gt;On July 29th, Russ Danner from Crafter software will tell us about &lt;a href="http://spring.io/blog/2014/06/12/webinar-conquering-content-enabled-web-and-mobile-applications-with-spring-and-groovy"&gt;Conquering Content-enabled Web and Mobile Applications with Spring and Groovy&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Andreas Eisele has put together a &lt;em&gt;very&lt;/em&gt; nice introduction to the machinery behind &lt;a href="http://blog.marcobehler.com/should-my-tests-be-transactional/"&gt;using &lt;code&gt;@Transactional&lt;/code&gt; in your Spring-managed unit-tests&lt;/a&gt;, with analysis of common scenarios, code, and more. Vert cool discussion, and a thoughtful post. &lt;/li&gt;
+&lt;li&gt;The Cegega blog has a &lt;em&gt;very&lt;/em&gt; cool look &lt;a href="http://blog.cegeka.be/2014/07/spring-batch-handling-exceptions-retrying/"&gt;at handling exceptions using Spring Batch's &lt;code&gt;RetryTemplate&lt;/code&gt;&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;This subject's near and dear to my hear this week, so I just wanted to share this oldie-but-a-goodie: &lt;a href="http://fabiomaffioletti.me/blog/2014/04/15/distributed-transactions-multiple-databases-spring-boot-spring-data-jpa-atomikos/"&gt;how to use Atomikos with Spring's JTA support&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;You &lt;em&gt;are&lt;/em&gt;, of course, checking out Groovy-language lead &lt;a href="http://spring.io/team/glaforge"&gt;Guillaume LaForge&lt;/a&gt;'s &lt;a href="http://glaforge.appspot.com/article/groovy-weekly-30"&gt;&lt;em&gt;This Week in Groovy&lt;/em&gt;&lt;/a&gt;, aren't you? :-)&lt;/li&gt;
+&lt;/ol&gt;</content>
+  </entry>
+  <entry>
+    <title>Webinar Replay: Building your app management tools with Spring Boot</title>
+    <link rel="alternate" href="https://spring.io/blog/2014/07/15/webinar-replay-building-your-app-management-tools-with-spring-boot" />
+    <category term="news" label="News and Events" />
+    <author>
+      <name>Pieter Humphrey</name>
+    </author>
+    <id>tag:spring.io,2014-07-15:1687</id>
+    <updated>2014-07-15T13:39:00Z</updated>
+    <content type="html">&lt;p&gt;Speaker: Greg Turnquist &lt;/p&gt;
+
+&lt;p&gt;Spring Boot lets you write apps better than ever. But did you ever think about writing all those support scripts and tools you inevitably need with Boot as well? In this webinar, see how the Spring team has already picked up and run with Spring Boot CLI as a powerful way to manage things like all open issues against the 60+ getting started guides. See how to monitor application logs using a little Spring Integration, Spring WebSocket+STOMP, and other technologies, all with some lightweight Boot+Groovy code.&lt;/p&gt;
+
+&lt;p&gt; Learn more about Spring Boot at:   &lt;a href="http://projects.spring.io/spring-boot"&gt;http://projects.spring.io/spring-boot&lt;/a&gt; &lt;/p&gt;
+
+&lt;p&gt;Webinar Resources: &lt;a href="https://github.com/gregturn/spring-monitor"&gt;https://github.com/gregturn/spring-monitor&lt;/a&gt; &lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/gregturn/issue-aggregator"&gt;https://github.com/gregturn/issue-aggregator&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt; &lt;a href="https://github.com/gregturn/drone-aggregator"&gt;https://github.com/gregturn/drone-aggregator&lt;/a&gt;&lt;/p&gt;&lt;iframe width="420" height="315" src="//www.youtube.com/embed/j3rrqOV68ik" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</content>
+  </entry>
+  <entry>
+    <title>SpEL support in Spring Data JPA @Query definitions</title>
+    <link rel="alternate" href="https://spring.io/blog/2014/07/15/spel-support-in-spring-data-jpa-query-definitions" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Thomas Darimont</name>
+    </author>
+    <id>tag:spring.io,2014-07-15:1686</id>
+    <updated>2014-07-15T10:57:45Z</updated>
+    <content type="html">&lt;p&gt;Spring Data JPA allows manually defining the query to be executed by a repository method using the &lt;code&gt;@Query&lt;/code&gt; annotation. Unfortunately parameter binding in JPQL is quite limited only allowing you to set a value and providing some type conversion. The latest &lt;a href="https://spring.io/blog/2014/07/10/first-milestone-of-spring-data-release-train-evans-available"&gt;Spring Data JPA M1&lt;/a&gt; release of the Evans release train eases this pain by adding support
+for using SpEL expressions to use dynamically bound parameters within statements in &lt;code&gt;@Query&lt;/code&gt; annotations which provides additional flexibility when defining queries manually. In this blog post, I am going to introduce you to the capabilities of this feature.&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;a name="user-content-method-parameter-expressions" class="anchor" href="#method-parameter-expressions" aria-hidden="true"&gt;&lt;span class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Method parameter expressions&lt;/h2&gt;
+
+&lt;p&gt;SpEL support provides access to the query method arguments. This allows you to either simply bind the parameter as is or perform additional operations before binding.&lt;/p&gt;
+
+&lt;div class="highlight highlight-java"&gt;&lt;pre&gt;&lt;span class="nd"&gt;@Query&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"select u from User u where u.age = ?#{[0]}"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;List&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;User&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nf"&gt;findUsersByAge&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;age&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+
+&lt;span class="nd"&gt;@Query&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"select u from User u where u.firstname = :#{#customer.firstname}"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;List&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;User&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nf"&gt;findUsersByCustomersFirstname&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nd"&gt;@Param&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"customer"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="n"&gt;Customer&lt;/span&gt; &lt;span class="n"&gt;customer&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Parameters are exposed for indexed access (&lt;code&gt;[0]&lt;/code&gt; in the first method) or via the name declared using &lt;code&gt;@Param&lt;/code&gt;. The actual SpEL expression binding is either triggered by &lt;code&gt;?#&lt;/code&gt; or &lt;code&gt;:#&lt;/code&gt;. We support both types to allow you to be consistent to standard JPQL parameter bindings that also might occur in the query definition.
+Parameters of special types like &lt;code&gt;Sort&lt;/code&gt; and `&lt;code&gt;Pageable&lt;/code&gt; are exposed with their simple class names as variables. &lt;/p&gt;
+
+&lt;h2&gt;
+&lt;a name="user-content-advanced-spel-expressions" class="anchor" href="#advanced-spel-expressions" aria-hidden="true"&gt;&lt;span class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Advanced SpEL expressions&lt;/h2&gt;
+
+&lt;p&gt;While advanced parameter binding is a very useful feature, the real power of SpEL stems from the fact, that the expressions can refer to framework abstractions or other application components. A very common scenario for SpEL is the definition of security constraints. So it would be cool if we could restrict a query to only return results related to the currently authenticated user:&lt;/p&gt;
+
+&lt;div class="highlight highlight-java"&gt;&lt;pre&gt;&lt;span class="nd"&gt;@Query&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"select u from User u where u.emailAddress = ?#{principal.emailAddress}"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;List&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;User&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nf"&gt;findCurrentUserWithCustomQuery&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;As you can see we refer to a property of Spring Security's &lt;code&gt;principal&lt;/code&gt;. So how does the Spring Data SpEL support integrate with Spring Security.&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;a name="user-content-spel-evaluationcontext-extension-model" class="anchor" href="#spel-evaluationcontext-extension-model" aria-hidden="true"&gt;&lt;span class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;SpEL EvaluationContext extension model&lt;/h2&gt;
+
+&lt;p&gt;Spring Data exposes an extension point &lt;code&gt;EvaluationContextExtension&lt;/code&gt;. The interface allows implementors to customize the &lt;code&gt;EvaluationContext&lt;/code&gt; in a very detailed way but for convenience, we provide a &lt;code&gt;EvaluationContextExtensionSupport&lt;/code&gt; base class to conveniently let you only implement the parts you're interested in:&lt;/p&gt;
+
+&lt;div class="highlight highlight-java"&gt;&lt;pre&gt;&lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;SecurityEvaluationContextExtension&lt;/span&gt; &lt;span class="kd"&gt;extends&lt;/span&gt; &lt;span class="n"&gt;EvaluationContextExtensionSupport&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+
+  &lt;span class="nd"&gt;@Override&lt;/span&gt;
+  &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="nf"&gt;getExtensionId&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s"&gt;"security"&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+  &lt;span class="o"&gt;}&lt;/span&gt;
+
+  &lt;span class="nd"&gt;@Override&lt;/span&gt;
+  &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="n"&gt;SecurityExpressionRoot&lt;/span&gt; &lt;span class="nf"&gt;getRootObject&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;Authentication&lt;/span&gt; &lt;span class="n"&gt;authentication&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;SecurityContextHolder&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getContext&lt;/span&gt;&lt;span class="o"&gt;().&lt;/span&gt;&lt;span class="na"&gt;getAuthentication&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nf"&gt;SecurityExpressionRoot&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;authentication&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{};&lt;/span&gt;
+  &lt;span class="o"&gt;}&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;For our Spring Security extension we extend &lt;code&gt;EvaluationContextExtensionSupport&lt;/code&gt; and override the &lt;code&gt;getRootObject()&lt;/code&gt;
+method and return a new &lt;code&gt;SecurityExpressionRoot&lt;/code&gt; instance which exposes all the security properties and expressions you already know from usage in &lt;code&gt;@PreAuthorize&lt;/code&gt;. This step also makes them available in SpEL expressions in our &lt;code&gt;@Query&lt;/code&gt; annotation.&lt;/p&gt;
+
+&lt;p&gt;The final step we need to take is to register the security extension as a bean:&lt;/p&gt;
+
+&lt;div class="highlight highlight-java"&gt;&lt;pre&gt;&lt;span class="nd"&gt;@Configuration&lt;/span&gt;
+&lt;span class="nd"&gt;@EnableJpaRepositories&lt;/span&gt;
+&lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;SecurityConfiguration&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+
+    &lt;span class="nd"&gt;@Bean&lt;/span&gt;
+    &lt;span class="n"&gt;EvaluationContextExtension&lt;/span&gt; &lt;span class="nf"&gt;securityExtension&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nf"&gt;SecurityEvaluationContextExtension&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Spring Data JPA will pick up all beans of type &lt;code&gt;EvaluationContextExtension&lt;/code&gt; and use those to prepare the &lt;code&gt;EvaluationContext&lt;/code&gt; to be used to evaluate the SpEL expression defined in &lt;code&gt;@Query&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The extension in place will now let you leverage the full power of the Spring Security SpEL functions. Imagine a repository query method that shall return the &lt;code&gt;BusinessObject&lt;/code&gt;s which the current user is owner of or all &lt;code&gt;BusinessObject&lt;/code&gt;s if the current user is admin. The query method definition would look like this:&lt;/p&gt;
+
+&lt;div class="highlight highlight-java"&gt;&lt;pre&gt;&lt;span class="kd"&gt;interface&lt;/span&gt; &lt;span class="nc"&gt;SecureBusinessObjectRepository&lt;/span&gt; &lt;span class="kd"&gt;extends&lt;/span&gt; &lt;span class="n"&gt;Repository&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;BusinessObject&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Long&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;{&lt;/span&gt;
+
+    &lt;span class="nd"&gt;@Query&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"select o from BusinessObject o where o.owner.emailAddress like "&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;
+      &lt;span class="s"&gt;"?#{hasRole('ROLE_ADMIN') ? '%' : principal.emailAddress}"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;List&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;BusinessObject&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nf"&gt;findBusinessObjectsForCurrentUser&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;You can find the working examples of the snippets seen here in the &lt;a href="https://github.com/spring-projects/spring-data-examples/tree/master/jpa/security"&gt;Spring-Data-Examples&lt;/a&gt; repository.&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;a name="user-content-sophisticated-use-cases" class="anchor" href="#sophisticated-use-cases" aria-hidden="true"&gt;&lt;span class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Sophisticated use cases&lt;/h2&gt;
+
+&lt;p&gt;Often new features enable ways to do things that one thought weren't possible before - an example for this is pagination in native queries. 
+Since this mechanism exposes special parameter types like &lt;code&gt;Sort&lt;/code&gt;or &lt;code&gt;Pageable&lt;/code&gt; as well, we're now able to
+use pagination in native queries.
+An example for this can be found here &lt;a href="https://github.com/spring-projects/spring-data-jpa/blob/master/src/test/java/org/springframework/data/jpa/repository/sample/UserRepository.java#L526"&gt;UserRepository&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;a name="user-content-whats-next" class="anchor" href="#whats-next" aria-hidden="true"&gt;&lt;span class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Whats next?&lt;/h2&gt;
+
+&lt;p&gt;Currently we are investigating a more tighter integration of Spring Security into Spring Data.
+We're also working on adding support for SpEL capabilities for other Spring Data modules.&lt;/p&gt;
+
+&lt;p&gt;But now it's your turn - please let us know what you think in the comments below of file a  feature request in our &lt;a href="https://jira.spring.io"&gt;JIRA&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;a name="user-content-springone-2gx-2014" class="anchor" href="#springone-2gx-2014" aria-hidden="true"&gt;&lt;span class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;SpringOne 2GX 2014&lt;/h2&gt;
+
+&lt;p&gt;SpringOne 2GX 2014 is getting close.&lt;/p&gt;
+
+&lt;p&gt;If you want to learn more about Spring Data, be sure to &lt;a href="https://2014.event.springone2gx.com/register"&gt;register&lt;/a&gt; for this year's SpringOne conference. The &lt;a href="https://2014.event.springone2gx.com/schedule/2014-09-09"&gt;schedule&lt;/a&gt; contains a lot of data-related talks to introduce you to the latest features we're going to ship with Evans. &lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Data REST now comes with ALPS metadata</title>
+    <link rel="alternate" href="https://spring.io/blog/2014/07/14/spring-data-rest-now-comes-with-alps-metadata" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Greg Turnquist</name>
+    </author>
+    <id>tag:spring.io,2014-07-14:1683</id>
+    <updated>2014-07-14T15:06:00Z</updated>
+    <content type="html">&lt;p&gt;With the recent release of &lt;a href="http://spring.io/blog/2014/07/10/first-milestone-of-spring-data-release-train-evans-available"&gt;Spring Data's Evans M1 milestone&lt;/a&gt;, Spring Data REST now comes with support for &lt;a href="http://alps.io"&gt;ALPS metadata&lt;/a&gt; to describe the semantics of the resources exported.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://alps.io/spec/index.html"&gt;ALPS&lt;/a&gt; is a data format for defining simple descriptions of application-level semantics, similar in complexity to HTML micro-formats. It also supports adding its metadata to existing media types. As of version 2.2 M1, Spring Data REST exposes JSON based ALPS resources that can help us navigate its resources. Let's see how!&lt;/p&gt;
+
+&lt;p&gt;We can start with a quick example. If you clone the &lt;a href="https://github.com/gregturn/todo"&gt;TODO repo&lt;/a&gt; and run &lt;code&gt;mvn spring-boot:run&lt;/code&gt;, you can navigate it to learn its values pretty easily.&lt;/p&gt;
+
+&lt;div class="highlight highlight-sh"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;curl -i localhost:8080
+HTTP/1.1 &lt;span class="m"&gt;200&lt;/span&gt; OK
+Server: Apache-Coyote/1.1
+X-Application-Context: application
+Content-Type: application/hal+json
+Transfer-Encoding: chunked
+Date: Thu, &lt;span class="m"&gt;17&lt;/span&gt; Jul &lt;span class="m"&gt;2014&lt;/span&gt; 13:36:48 GMT
+&lt;span class="o"&gt;{&lt;/span&gt; &lt;span class="s2"&gt;"_links"&lt;/span&gt; : &lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="s2"&gt;"todos"&lt;/span&gt; : &lt;span class="o"&gt;{&lt;/span&gt;
+      &lt;span class="s2"&gt;"href"&lt;/span&gt; : &lt;span class="s2"&gt;"http://localhost:8080/todos"&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;,
+    &lt;span class="s2"&gt;"profile"&lt;/span&gt; : &lt;span class="o"&gt;{&lt;/span&gt;
+      &lt;span class="s2"&gt;"href"&lt;/span&gt; : &lt;span class="s2"&gt;"http://localhost:8080/alps"&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;
+  &lt;span class="o"&gt;}&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;At the root document are two links: &lt;code&gt;todos&lt;/code&gt; and &lt;code&gt;profile&lt;/code&gt;. The client might not know what &lt;code&gt;todos&lt;/code&gt; means, but the content contained inside &lt;a href="http://alps.io/spec/index.html#rfc.section.3.1"&gt;profile&lt;/a&gt; is well defined. It basically points to a resource that describes the semantics of the resources on top of what the actual media type (&lt;a href="http://tools.ietf.org/html/draft-kelly-json-hal"&gt;HAL&lt;/a&gt; in this case) defines. Why don't we check it out?&lt;/p&gt;
+
+&lt;div class="highlight highlight-sh"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;curl -i localhost:8080/alps
+HTTP/1.1 &lt;span class="m"&gt;200&lt;/span&gt; OK
+Server: Apache-Coyote/1.1
+X-Application-Context: application
+Content-Type: application/alps+json
+Transfer-Encoding: chunked
+Date: Thu, &lt;span class="m"&gt;17&lt;/span&gt; Jul &lt;span class="m"&gt;2014&lt;/span&gt; 13:54:56 GMT
+
+&lt;span class="o"&gt;{&lt;/span&gt; &lt;span class="s2"&gt;"version"&lt;/span&gt; : &lt;span class="s2"&gt;"1.0"&lt;/span&gt;,
+  &lt;span class="s2"&gt;"descriptors"&lt;/span&gt; : &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="s2"&gt;"href"&lt;/span&gt; : &lt;span class="s2"&gt;"http://localhost:8080/alps/todos"&lt;/span&gt;,
+    &lt;span class="s2"&gt;"name"&lt;/span&gt; : &lt;span class="s2"&gt;"todos"&lt;/span&gt;
+  &lt;span class="o"&gt;}&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Here we have an &lt;code&gt;application/alps+json&lt;/code&gt; document. According to this, it has information about &lt;code&gt;todos&lt;/code&gt;, which maps 1-on-1 with the &lt;code&gt;todos&lt;/code&gt; we saw earlier. So let's navigate to it's href.&lt;/p&gt;
+
+&lt;div class="highlight highlight-sh"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;curl localhost:8080/alps/todos
+&lt;span class="o"&gt;{&lt;/span&gt; &lt;span class="s2"&gt;"version"&lt;/span&gt; : &lt;span class="s2"&gt;"1.0"&lt;/span&gt;,
+  &lt;span class="s2"&gt;"descriptors"&lt;/span&gt; : &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="s2"&gt;"id"&lt;/span&gt; : &lt;span class="s2"&gt;"todo-representation"&lt;/span&gt;,
+    &lt;span class="s2"&gt;"descriptors"&lt;/span&gt; : &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+      &lt;span class="s2"&gt;"name"&lt;/span&gt; : &lt;span class="s2"&gt;"description"&lt;/span&gt;,
+      &lt;span class="s2"&gt;"doc"&lt;/span&gt; : &lt;span class="o"&gt;{&lt;/span&gt;
+        &lt;span class="s2"&gt;"value"&lt;/span&gt; : &lt;span class="s2"&gt;"Details about the TODO item"&lt;/span&gt;,
+        &lt;span class="s2"&gt;"format"&lt;/span&gt; : &lt;span class="s2"&gt;"TEXT"&lt;/span&gt;
+      &lt;span class="o"&gt;}&lt;/span&gt;,
+      &lt;span class="s2"&gt;"type"&lt;/span&gt; : &lt;span class="s2"&gt;"SEMANTIC"&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;, &lt;span class="o"&gt;{&lt;/span&gt;
+      &lt;span class="s2"&gt;"name"&lt;/span&gt; : &lt;span class="s2"&gt;"title"&lt;/span&gt;,
+      &lt;span class="s2"&gt;"doc"&lt;/span&gt; : &lt;span class="o"&gt;{&lt;/span&gt;
+        &lt;span class="s2"&gt;"value"&lt;/span&gt; : &lt;span class="s2"&gt;"Title for the TODO item"&lt;/span&gt;,
+        &lt;span class="s2"&gt;"format"&lt;/span&gt; : &lt;span class="s2"&gt;"TEXT"&lt;/span&gt;
+      &lt;span class="o"&gt;}&lt;/span&gt;,
+      &lt;span class="s2"&gt;"type"&lt;/span&gt; : &lt;span class="s2"&gt;"SEMANTIC"&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;, &lt;span class="o"&gt;{&lt;/span&gt;
+      &lt;span class="s2"&gt;"name"&lt;/span&gt; : &lt;span class="s2"&gt;"id"&lt;/span&gt;,
+      &lt;span class="s2"&gt;"type"&lt;/span&gt; : &lt;span class="s2"&gt;"SEMANTIC"&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;, &lt;span class="o"&gt;{&lt;/span&gt;
+      &lt;span class="s2"&gt;"name"&lt;/span&gt; : &lt;span class="s2"&gt;"completed"&lt;/span&gt;,
+      &lt;span class="s2"&gt;"doc"&lt;/span&gt; : &lt;span class="o"&gt;{&lt;/span&gt;
+        &lt;span class="s2"&gt;"value"&lt;/span&gt; : &lt;span class="s2"&gt;"Is it completed?"&lt;/span&gt;,
+        &lt;span class="s2"&gt;"format"&lt;/span&gt; : &lt;span class="s2"&gt;"TEXT"&lt;/span&gt;
+      &lt;span class="o"&gt;}&lt;/span&gt;,
+      &lt;span class="s2"&gt;"type"&lt;/span&gt; : &lt;span class="s2"&gt;"SEMANTIC"&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;
+  &lt;span class="o"&gt;}&lt;/span&gt;, &lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="s2"&gt;"id"&lt;/span&gt; : &lt;span class="s2"&gt;"get-todos"&lt;/span&gt;,
+    &lt;span class="s2"&gt;"name"&lt;/span&gt; : &lt;span class="s2"&gt;"todos"&lt;/span&gt;,
+    &lt;span class="s2"&gt;"type"&lt;/span&gt; : &lt;span class="s2"&gt;"SAFE"&lt;/span&gt;,
+    &lt;span class="s2"&gt;"rt"&lt;/span&gt; : &lt;span class="s2"&gt;"#todo-representation"&lt;/span&gt;
+  &lt;span class="o"&gt;}&lt;/span&gt;, &lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="s2"&gt;"id"&lt;/span&gt; : &lt;span class="s2"&gt;"create-todos"&lt;/span&gt;,
+    &lt;span class="s2"&gt;"name"&lt;/span&gt; : &lt;span class="s2"&gt;"todos"&lt;/span&gt;,
+    &lt;span class="s2"&gt;"type"&lt;/span&gt; : &lt;span class="s2"&gt;"UNSAFE"&lt;/span&gt;,
+    &lt;span class="s2"&gt;"rt"&lt;/span&gt; : &lt;span class="s2"&gt;"#todo-representation"&lt;/span&gt;
+  &lt;span class="o"&gt;}&lt;/span&gt;, &lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="s2"&gt;"id"&lt;/span&gt; : &lt;span class="s2"&gt;"delete-todo"&lt;/span&gt;,
+    &lt;span class="s2"&gt;"name"&lt;/span&gt; : &lt;span class="s2"&gt;"todo"&lt;/span&gt;,
+    &lt;span class="s2"&gt;"type"&lt;/span&gt; : &lt;span class="s2"&gt;"IDEMPOTENT"&lt;/span&gt;,
+    &lt;span class="s2"&gt;"rt"&lt;/span&gt; : &lt;span class="s2"&gt;"#todo-representation"&lt;/span&gt;
+  &lt;span class="o"&gt;}&lt;/span&gt;, &lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="s2"&gt;"id"&lt;/span&gt; : &lt;span class="s2"&gt;"update-todo"&lt;/span&gt;,
+    &lt;span class="s2"&gt;"name"&lt;/span&gt; : &lt;span class="s2"&gt;"todo"&lt;/span&gt;,
+    &lt;span class="s2"&gt;"type"&lt;/span&gt; : &lt;span class="s2"&gt;"IDEMPOTENT"&lt;/span&gt;,
+    &lt;span class="s2"&gt;"rt"&lt;/span&gt; : &lt;span class="s2"&gt;"#todo-representation"&lt;/span&gt;
+  &lt;span class="o"&gt;}&lt;/span&gt;, &lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="s2"&gt;"id"&lt;/span&gt; : &lt;span class="s2"&gt;"patch-todo"&lt;/span&gt;,
+    &lt;span class="s2"&gt;"name"&lt;/span&gt; : &lt;span class="s2"&gt;"todo"&lt;/span&gt;,
+    &lt;span class="s2"&gt;"type"&lt;/span&gt; : &lt;span class="s2"&gt;"UNSAFE"&lt;/span&gt;,
+    &lt;span class="s2"&gt;"rt"&lt;/span&gt; : &lt;span class="s2"&gt;"#todo-representation"&lt;/span&gt;
+  &lt;span class="o"&gt;}&lt;/span&gt;, &lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="s2"&gt;"id"&lt;/span&gt; : &lt;span class="s2"&gt;"get-todo"&lt;/span&gt;,
+    &lt;span class="s2"&gt;"name"&lt;/span&gt; : &lt;span class="s2"&gt;"todo"&lt;/span&gt;,
+    &lt;span class="s2"&gt;"type"&lt;/span&gt; : &lt;span class="s2"&gt;"SAFE"&lt;/span&gt;,
+    &lt;span class="s2"&gt;"rt"&lt;/span&gt; : &lt;span class="s2"&gt;"#todo-representation"&lt;/span&gt;
+  &lt;span class="o"&gt;}&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The document contains a top level descriptor, &lt;code&gt;todo-representation&lt;/code&gt;. This descriptor is a collection of descriptors, one for each attribute of the domain object. Each domain element provides us with its name and extra documentation information. We supplied it a text value using &lt;code&gt;@Description&lt;/code&gt; annotations inside the POJO, but this data can also be supplied by a resource bundle.&lt;/p&gt;
+
+&lt;p&gt;Further down in the ALPS document are all the RESTful transitions supported by this TODO resource: get, create, delete, update, and patch. Now we're getting somewhere!&lt;/p&gt;
+
+&lt;p&gt;Let's look at &lt;code&gt;get-todos&lt;/code&gt; and see what we can figure out:&lt;/p&gt;
+
+&lt;div class="highlight highlight-javascript"&gt;&lt;pre&gt;&lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="s2"&gt;"id"&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"get-todos"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="s2"&gt;"name"&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"todos"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="s2"&gt;"type"&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"SAFE"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="s2"&gt;"rt"&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"#todo-representation"&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;This operation describes a GET. It names &lt;code&gt;todos&lt;/code&gt; as the rel it is about (which we saw at the beginning of this article). It is SAFE indicating it won't alter the state of the system. If means that if we execute a GET against &lt;code&gt;todos&lt;/code&gt;, we can expect the response to contain results in the form of the &lt;code&gt;todo-representation&lt;/code&gt; descriptor seen at the top.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Create and patch are unsafe because they alter the state of the system.&lt;/li&gt;
+&lt;li&gt;Delete and update are idempotent meaning we can perform the same operation multiple times and expect the same result.&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;The name of each operation also tells us where to perform the operation. &lt;code&gt;todos&lt;/code&gt; indicates RESTful ops that should be executed against the collection resource, while &lt;code&gt;todo&lt;/code&gt; is for use on an item resource.&lt;/p&gt;
+
+&lt;p&gt;With this information, we can see how to interact with &lt;code&gt;todos&lt;/code&gt;. We'll start by creating a new TODO. Looking at &lt;code&gt;create-todos&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class="highlight highlight-javascript"&gt;&lt;pre&gt;&lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="s2"&gt;"id"&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"create-todos"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="s2"&gt;"name"&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"todos"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="s2"&gt;"type"&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"UNSAFE"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="s2"&gt;"rt"&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;"#todo-representation"&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;It tells us to look for &lt;code&gt;todos&lt;/code&gt;. So grabbing the URI shown at the top and combining it with POST, the REST verb for create, we can write this:&lt;/p&gt;
+
+&lt;div class="highlight highlight-sh"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;curl -i -X POST -H &lt;span class="s2"&gt;"Content-Type:application/json"&lt;/span&gt; -d &lt;span class="s1"&gt;'&lt;/span&gt;
+&lt;span class="s1"&gt;{ "title":"Create blog entry",&lt;/span&gt;
+&lt;span class="s1"&gt;  "description": "Write blog post about SDRs ALPS metadata support",&lt;/span&gt;
+&lt;span class="s1"&gt;  "completed": "false"&lt;/span&gt;
+&lt;span class="s1"&gt;}'&lt;/span&gt; localhost:8080/todos
+HTTP/1.1 &lt;span class="m"&gt;201&lt;/span&gt; Created
+Server: Apache-Coyote/1.1
+X-Application-Context: application
+Location: http://localhost:8080/todos/1
+Content-Length: 0
+Date: Mon, &lt;span class="m"&gt;14&lt;/span&gt; Jul &lt;span class="m"&gt;2014&lt;/span&gt; 20:23:12 GMT
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;In the response headers, we can the new location: http://localhost:8080/todos/1.&lt;/p&gt;
+
+&lt;p&gt;The ALPS metadata also lists &lt;code&gt;get-todo&lt;/code&gt; as another operation, which will return a &lt;code&gt;todo-representation&lt;/code&gt;. So let's try it:&lt;/p&gt;
+
+&lt;div class="highlight highlight-sh"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;curl localhost:8080/todos/1
+&lt;span class="o"&gt;{&lt;/span&gt; &lt;span class="s2"&gt;"title"&lt;/span&gt; : &lt;span class="s2"&gt;"Create blog entry"&lt;/span&gt;,
+  &lt;span class="s2"&gt;"description"&lt;/span&gt; : &lt;span class="s2"&gt;"Write blog post about SDRs ALPS metadata support"&lt;/span&gt;,
+  &lt;span class="s2"&gt;"completed"&lt;/span&gt; : &lt;span class="nb"&gt;false&lt;/span&gt;,
+  &lt;span class="s2"&gt;"_links"&lt;/span&gt; : &lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="s2"&gt;"self"&lt;/span&gt; : &lt;span class="o"&gt;{&lt;/span&gt;
+      &lt;span class="s2"&gt;"href"&lt;/span&gt; : &lt;span class="s2"&gt;"http://localhost:8080/todos/1"&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;
+  &lt;span class="o"&gt;}&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Using the ALPS metadata, we were able to create a new TODO and then look it up.&lt;/p&gt;
+
+&lt;p&gt;We were able to learn what operations were available and what elements are managed by it. And we didn't have to know the URI structure either. The metadata told us where to look to conduct these RESTful transitions. This means the server can change URIs and it won't impact our ability to interact with the service.&lt;/p&gt;
+
+&lt;p&gt;If you're interested in seeing more of Spring Data REST in action, be sure to sign up for &lt;a href="http://2014.event.springone2gx.com/schedule/sessions/spring_data_rest_-_data_meets_hypermedia.html"&gt;Data Meets Hypermedia&lt;/a&gt; at this year's &lt;a href="http://www.springone2gx.com"&gt;SpringOne conference&lt;/a&gt;. Spring Mobile/Android project lead &lt;a href="http://spring.io/team/rclarkson"&gt;Roy Clarkson&lt;/a&gt; will join me as we use Spring Data REST to create Spring-a-Gram, a tool for snapping pics from your mobile device and sharing over the interwebs.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Tool Suite and Groovy/Grails Tool Suite 3.6.0 released</title>
+    <link rel="alternate" href="https://spring.io/blog/2014/07/11/spring-tool-suite-and-groovy-grails-tool-suite-3-6-0-released" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Martin Lippert</name>
+    </author>
+    <id>tag:spring.io,2014-07-11:1681</id>
+    <updated>2014-07-11T16:12:00Z</updated>
+    <content type="html">&lt;p&gt;Dear Spring Community,&lt;/p&gt;
+
+&lt;p&gt;we are happy to announce the next major release of our Eclipse-based tooling today: The Spring Tool Suite (STS) 3.6.0 and the Groovy/Grails Tool Suite (GGTS) 3.6.0.&lt;/p&gt;
+
+&lt;p&gt;Highlights from this release include:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;based on Eclipse Luna 4.4&lt;/li&gt;
+&lt;li&gt;support for Groovy 2.3&lt;/li&gt;
+&lt;li&gt;updated to Grails 2.4&lt;/li&gt;
+&lt;li&gt;updated to tc Server 2.9.6&lt;/li&gt;
+&lt;li&gt;minor improvements to the Gradle tooling&lt;/li&gt;
+&lt;li&gt;bugfixes, including fixes for endless build loops and memory leaks&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;To download the distributions, please go visit:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Spring Tool Suite: &lt;a href="https://spring.io/tools/sts/all"&gt;https://spring.io/tools/sts/all&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;Groovy/Grails Tool Suite: &lt;a href="https://spring.io/tools/ggts/all"&gt;https://spring.io/tools/ggts/all&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;Detailed new and noteworthy notes can be found here: &lt;a href="http://docs.spring.io/sts/nan/v360/NewAndNoteworthy.html"&gt;STS/GGTS 3.6.0 New &amp;amp; Noteworthy&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;NOTE:
+Both tool suites ship on top of the latest Eclipse Luna 4.4 release as 64bit and 32bit based zip files only.
+There will be no native installers for STS/GGTS anymore.&lt;/p&gt;
+
+&lt;p&gt;From now on, we shift towards a slightly changed release schedule, shipping minor releases more frequently.
+Therefore 3.6.1 is scheduled to ship on time for SpringOne2GX 2014 in early September, followed by 3.6.2 in October shortly after the Eclipse Luna SR1 release.&lt;/p&gt;
+
+&lt;p&gt;Enjoy!&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>First Milestone of Spring Data Release Train Evans Available</title>
+    <link rel="alternate" href="https://spring.io/blog/2014/07/10/first-milestone-of-spring-data-release-train-evans-available" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Christoph Strobl</name>
+    </author>
+    <id>tag:spring.io,2014-07-10:1680</id>
+    <updated>2014-07-10T19:50:55Z</updated>
+    <content type="html">&lt;p&gt;We are happy to announce the first milestone of the Spring Data Release train &lt;a href="https://github.com/spring-projects/spring-data-commons/wiki/Release-Train-Evans"&gt;Evans&lt;/a&gt;. &lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Spring Data Commons 1.9 M1 - &lt;a href="http://repo.spring.io/libs-milestone/org/springframework/data/spring-data-commons/1.9.0.M1"&gt;Artifacts&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/commons/docs/1.9.0.M1/api"&gt;JavaDocs&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/commons/docs/1.9.0.M1/reference/htmlsingle"&gt;Documentation&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/commons/docs/1.9.0.M1/changelog.txt"&gt;Changelog&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;Spring Data JPA 1.7 M1 - &lt;a href="http://repo.spring.io/libs-milestone/org/springframework/data/spring-data-jpa/1.7.0.M1"&gt;Artifacts&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/jpa/docs/1.7.0.M1/api"&gt;JavaDocs&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/jpa/docs/1.7.0.M1/reference/htmlsingle"&gt;Documentation&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/jpa/docs/1.7.0.M1/changelog.txt"&gt;Changelog&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;Spring Data MongoDB 1.6 M1 - &lt;a href="http://repo.spring.io/libs-milestone/org/springframework/data/spring-data-mongodb/1.6.0.M1"&gt;Artifacts&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/mongodb/docs/1.6.0.M1/api"&gt;JavaDocs&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/mongodb/docs/1.6.0.M1/reference/htmlsingle"&gt;Documentation&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/mongodb/docs/1.6.0.M1/changelog.txt"&gt;Changelog&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;Spring Data Neo4j 3.2 M1 - &lt;a href="http://repo.spring.io/libs-milestone/org/springframework/data/spring-data-neo4j/3.2.0.M1"&gt;Artifacts&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/neo4j/docs/3.2.0.M1/api"&gt;JavaDocs&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/neo4j/docs/3.2.0.M1/reference/htmlsingle"&gt;Documentation&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/neo4j/docs/3.2.0.M1/changelog.txt"&gt;Changelog&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;Spring Data Solr 1.3 M1 - &lt;a href="http://repo.spring.io/libs-milestone/org/springframework/data/spring-data-solr/1.3.0.M1"&gt;Artifacts&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/solr/docs/1.3.0.M1/api"&gt;JavaDocs&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/solr/docs/1.3.0.M1/reference/htmlsingle"&gt;Documentation&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/solr/docs/1.3.0.M1/changelog.txt"&gt;Changelog&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;Spring Data Couchbase 1.2 M1 - &lt;a href="http://repo.spring.io/libs-milestone/org/springframework/data/spring-data-couchbase/1.2.0.M1"&gt;Artifacts&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/couchbase/docs/1.2.0.M1/api"&gt;JavaDocs&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/couchbase/docs/1.2.0.M1/reference/htmlsingle"&gt;Documentation&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/couchbase/docs/1.2.0.M1/changelog.txt"&gt;Changelog&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;Spring Data Cassandra 1.1 M1 - &lt;a href="http://repo.spring.io/libs-milestone/org/springframework/data/spring-data-cassandra/1.1.0.M1"&gt;Artifacts&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/cassandra/docs/1.1.0.M1/api"&gt;JavaDocs&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/cassandra/docs/1.1.0.M1/reference/htmlsingle"&gt;Documentation&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/cassandra/docs/1.1.0.M1/changelog.txt"&gt;Changelog&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;Spring Data Elasticsearch 1.1 M1 - &lt;a href="http://repo.spring.io/libs-milestone/org/springframework/data/spring-data-elasticsearch/1.1.0.M1"&gt;Artifacts&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/elasticsearch/docs/1.1.0.M1/api"&gt;JavaDocs&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/elasticsearch/docs/1.1.0.M1/reference/htmlsingle"&gt;Documentation&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/elasticsearch/docs/1.1.0.M1/changelog.txt"&gt;Changelog&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;Spring Data Gemfire 1.5 M1 - &lt;a href="http://repo.spring.io/libs-milestone/org/springframework/data/spring-data-gemfire/1.5.0.M1"&gt;Artifacts&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/gemfire/docs/1.5.0.M1/api"&gt;JavaDocs&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/gemfire/docs/1.5.0.M1/reference/htmlsingle"&gt;Documentation&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/gemfire/docs/1.5.0.M1/changelog.txt"&gt;Changelog&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;Spring Data Redis 1.4 M1 - &lt;a href="http://repo.spring.io/libs-milestone/org/springframework/data/spring-data-redis/1.4.0.M1"&gt;Artifacts&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/redis/docs/1.4.0.M1/api"&gt;JavaDocs&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/redis/docs/1.4.0.M1/reference/htmlsingle"&gt;Documentation&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/redis/docs/1.4.0.M1/changelog.txt"&gt;Changelog&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;Spring Data REST 2.2 M1 - &lt;a href="http://repo.spring.io/libs-milestone/org/springframework/data/spring-data-rest-webmvc/2.2.0.M1"&gt;Artifacts&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/rest/docs/2.2.0.M1/api"&gt;JavaDocs&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/rest/docs/2.2.0.M1/reference/htmlsingle"&gt;Documentation&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/rest/docs/2.2.0.M1/changelog.txt"&gt;Changelog&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;There's a bunch of new stuff shipping with this release:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Support for Java 8 &lt;a href="https://github.com/spring-projects/spring-data-examples/blob/master/jpa/java8/src/main/java/example/springdata/jpa/java8/CustomerRepository.java#L42"&gt;default methods&lt;/a&gt; on repositories.&lt;/li&gt;
+&lt;li&gt;Support for dynamic SpEL based &lt;a href="https://github.com/spring-projects/spring-data-examples/blob/master/jpa/security/src/main/java/example/springdata/jpa/security/SecureBusinessObjectRepository.java#L44"&gt;query parameter expressions&lt;/a&gt; in JPA.&lt;/li&gt;
+&lt;li&gt;Enhanced support for MongoDB 2.6 features (&lt;a href="https://jira.spring.io/browse/DATAMONGO-850"&gt;text search&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;Support for &lt;a href="https://jira.spring.io/browse/DATAREST-230"&gt;ALPS&lt;/a&gt; and &lt;a href="https://jira.spring.io/browse/DATAREST-317"&gt;excerpt projections&lt;/a&gt; in Spring Data REST.&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="https://github.com/spring-projects/spring-data-build/issues/94"&gt;Spring 4&lt;/a&gt; as new baseline.&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;Be sure to check out the already &lt;a href="https://github.com/spring-projects/spring-data-examples"&gt;updated examples&lt;/a&gt;. The team around the participating modules squashed 125 Tickets including 42 bug fixes. Have a look at &lt;a href="https://jira.spring.io/issues/?filter=14746"&gt;Jira&lt;/a&gt; for a full list and watch out for upcoming blog posts on selected features.&lt;/p&gt;
+
+&lt;p&gt;Get in touch via &lt;a href="https://twitter.com/springdata"&gt;Twitter&lt;/a&gt;, &lt;a href="http://stackoverflow.com/questions/tagged/spring-data"&gt;StackOverflow&lt;/a&gt; or &lt;a href="http://jira.spring.io"&gt;JIRA&lt;/a&gt;. We're looking forward to your feedback!&lt;/p&gt;
+
+&lt;hr&gt;&lt;p&gt;SpringOne 2GX 2014 is getting close.&lt;/p&gt;
+
+&lt;p&gt;Book your place at &lt;a href="http://www.springone2gx.com"&gt;SpringOne in Dallas, TX&lt;/a&gt; for Sept 8-11. It's simply the best opportunity to find out first hand what's hot in Spring Data and have a chat with the people involved.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Batch Releases And A New Repository</title>
+    <link rel="alternate" href="https://spring.io/blog/2014/07/10/spring-batch-releases-and-a-new-repository" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Michael Minella</name>
+    </author>
+    <id>tag:spring.io,2014-07-10:1678</id>
+    <updated>2014-07-10T14:05:00Z</updated>
+    <content type="html">&lt;p&gt;Today we are pleased to announce the release of Spring Batch 3.0.1, Spring Batch Admin 1.3.0.RC1, and introduce the
+    Spring Batch Extensions project.  These releases in addition to the Spring Batch Extensions project address a number
+    of improvements and issues.&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;a name="user-content-spring-batch-301" class="anchor" href="#spring-batch-301" aria-hidden="true"&gt;&lt;span class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Spring Batch 3.0.1&lt;/h2&gt;
+
+&lt;p&gt;This release of Spring Batch consists mainly of bug fixes, however, one new feature was added: &lt;code&gt;ScriptItemProcessor&lt;/code&gt;.
+   This &lt;code&gt;ItemProcessor&lt;/code&gt; implementation provides the ability to use an external or inline script to provide
+   the logic of your processor.  An example of using Groovy inline would look something like this:&lt;/p&gt;
+
+&lt;div class="highlight highlight-java"&gt;&lt;pre&gt;&lt;span class="nd"&gt;@Bean&lt;/span&gt;
+&lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="n"&gt;ScriptItemProcessor&lt;/span&gt; &lt;span class="nf"&gt;processor&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;ScriptItemProcessor&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Object&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;scriptItemProcessor&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;ScriptItemProcessor&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Object&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;();&lt;/span&gt;
+
+    &lt;span class="n"&gt;scriptItemProcessor&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;setScriptSource&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"item.toUpperCase();"&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="s"&gt;"groovy"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+    &lt;span class="n"&gt;scriptItemProcessor&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;afterPropertiesSet&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
+
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;scriptItemProcessor&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;This &lt;code&gt;ItemProcessor&lt;/code&gt; allows full support of all JSR-223 scripting options.&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;a name="user-content-spring-batch-admin-130rc1" class="anchor" href="#spring-batch-admin-130rc1" aria-hidden="true"&gt;&lt;span class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Spring Batch Admin 1.3.0.RC1&lt;/h2&gt;
+
+&lt;p&gt;Spring Batch Admin 1.3.0.RC1 addresses &lt;a href="https://jira.spring.io/browse/BATCHADM-188?jql=fixVersion%20%3D%201.3.0%20AND%20project%20%3D%20BATCHADM"&gt;a number of issues&lt;/a&gt; as well as updated it to be used with the Spring Batch 2.2.x version of the job repository and beyond.  In addition to the issues addressed, we also completed a number of dependency updates to bring the project up to date from that perspective.&lt;/p&gt;
+
+&lt;p&gt;To support the users of Spring Batch 2.2.x, this release contains the Spring Batch Integration module and still uses Spring Integration 3.  However, Spring Batch 3.0 saw us move this module to Spring Batch and so this will be the last release of Spring Batch Admin that contains this module.  Going forward, users will be expected to use the version included within Spring Batch.&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;a name="user-content-spring-batch-extensions" class="anchor" href="#spring-batch-extensions" aria-hidden="true"&gt;&lt;span class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Spring Batch Extensions&lt;/h2&gt;
+
+&lt;p&gt;Finally, we are happy to announce a new repository for Spring Batch, Spring Batch Extensions.  This project provides a home for community contributed modules akin to Spring Integration Extensions.  With this announcement, we have our first contribution, the spring-batch-elasticsearch module.  This module provides an &lt;code&gt;ItemReader&lt;/code&gt; and an &lt;code&gt;ItemWriter&lt;/code&gt; for interacting with Elasticsearch.  You can find information about this module and other contributions on &lt;a href="https://github.com/spring-projects/spring-batch-extensions"&gt;Github&lt;/a&gt;.  We look forward to future contributions from the community to help expand the available use cases for Spring Batch.&lt;/p&gt;
+
+&lt;p&gt;Please share your feedback on Stack Overflow, social media, and in person at &lt;a href="http://springone2gx.com/register"&gt;SpringOne2GX&lt;/a&gt;!&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>This Week in Spring - July 8th, 2014</title>
+    <link rel="alternate" href="https://spring.io/blog/2014/07/08/this-week-in-spring-july-8th-2014" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2014-07-08:1674</id>
+    <updated>2014-07-08T20:17:00Z</updated>
+    <content type="html">&lt;p&gt;Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt;! I hope our American readers had a pleasant 4th of July, and I hope everybody else had a pleasant Friday! &lt;/p&gt;
+
+&lt;p&gt;There is, as usual, a lot to discuss this week so let's get to it! &lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Sleepless Spring Security lead Rob Winch has  just announced the &lt;a href="http://spring.io/blog/2014/07/08/spring-session-1-0-0-m1-released"&gt;first milestone of Spring Session&lt;/a&gt;. Spring Session makes it easy to  access a session from any environment (i.e. web, messaging infrastructure, etc),  support for clustering in a vendor neutral way, plug in strategies for determining the session ID, and  easily keep the HttpSession alive when a WebSocket is active. This is &lt;em&gt;really&lt;/em&gt;   cool!  And, in fact, it might  solve an issue I faced just last week where I wanted to access the HTTP session from a Web Socket handler!&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="http://twitter.com/ankinson"&gt;Andy Wilkinson&lt;/a&gt; has just announced   &lt;a href="http://spring.io/blog/2014/07/08/spring-boot-1-1-4-released"&gt;Spring Boot 1.1.4 release&lt;/a&gt;. The new release includes many bug-fixes and small new features, including support for the first stable preview release of Tomcat 8.   &lt;/li&gt;
+&lt;li&gt;Andy &lt;em&gt;also&lt;/em&gt; just announced the first &lt;a href="http://spring.io/blog/2014/07/08/spring-io-platform-1-0-1-released"&gt;maintenance release to Spring IO&lt;/a&gt; which updates versions across the platform to include Spring AMQP 1.3.5, Spring Boot 1.1.4, Spring Batch 3.0.1, Spring for Apache Hadoop 2.0.1, and Spring Framework 4.0.6. Nice job, Andy!&lt;/li&gt;
+&lt;li&gt;Thomas Risberg has just &lt;a href="http://spring.io/blog/2014/07/08/spring-for-apache-hadoop-2-0-1-released"&gt;announced Spring for Apache Hadoop 2.0.1&lt;/a&gt; which revs the dependency versions, including Hadoop 2.4.1, Spring framework 4.0.6.RELEASE, Spring Batch to 3.0.1.RELEASE,  Spring Boot to 1.1.4.RELEASE. &lt;/li&gt;
+&lt;li&gt;Stéphane Nicoll  has just announced that &lt;a href="http://spring.io/blog/2014/07/08/spring-framework-4-0-6-released"&gt;Spring framework 4.0.6 is now available&lt;/a&gt;.   This release includes about 50 bugfixes.&lt;/li&gt;
+&lt;li&gt;Spring Social lead Craig Walls has just announced that &lt;a href="http://spring.io/blog/2014/07/03/spring-social-facebook-2-0-0-m1-released"&gt;Spring Social Facebook 2.0.0.M1 is now available&lt;/a&gt;. This release supports the new  Facebook v2.0.0 Graph API, which introduces some breaking, obligatory, changes (thanks, Facebook!).&lt;/li&gt;
+&lt;li&gt;Groovy project lead &lt;a href="http://twitter.com/glaforge"&gt;Guillaume LaForge&lt;/a&gt; has announced &lt;a href="http://beta.groovy-lang.org"&gt;the beta of the new Groovy website&lt;/a&gt;  and is soliciting feedback from the community at large.&lt;/li&gt;
+&lt;li&gt;From the trenches: Join Casey Doolittle and Phil Dutson on July 15th for a webinar about a crazy project, and how they had to &lt;a href="http://spring.io/blog/2014/06/10/webinar-building-a-shopping-cart-in-24-hours-using-spring"&gt;Build a Shopping Cart in 24 Hours using Spring&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="http://spring.io/blog/2014/06/12/webinar-why-do-i-recommend-spring"&gt;Check out this upcoming webinar by Michael Plod on why he recommends Spring&lt;/a&gt; - learn the technology (and a bit of the business) case! Michael is a great speaker and frequently appears at conferences. Register now for the event on July 22nd.&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="http://spring.io/blog/2014/06/12/webinar-conquering-content-enabled-web-and-mobile-applications-with-spring-and-groovy"&gt;&lt;/a&gt;On July 29th, Russ Danner from Crafter software will tell us about &lt;a href="http://spring.io/blog/2014/06/12/webinar-conquering-content-enabled-web-and-mobile-applications-with-spring-and-groovy"&gt;Conquering Content-enabled Web and Mobile Applications with Spring and Groovy&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Last year, Spring tool ninjas Andy Clement and Martin Lippert did a great talk at &lt;a href="http://spring.io/blog/2014/07/03/springone2gx-2013-replay-tooling-for-spring-s-next-generation"&gt;SpringOne2GX 2013 introducing the latest and greatest tooling&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Last year at SpringOne2GX 2013, Julien Dubois (you might recognise him from &lt;a href="http://jhipster.github.io/"&gt;JHipster&lt;/a&gt;..) did a great talk &lt;a href="https://spring.io/blog/2014/07/03/springone2gx-2013-replay-performance-tuning-the-spring-petclinic-sample-application"&gt;looking at how to run and performance tune the classic Spring petclinic application&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Dr. Dobb's had a nice &lt;a href="http://www.drdobbs.com/cloud/summer-brings-spring-io/240168606"&gt;post looking at the new Spring IO release&lt;/a&gt;. &lt;/li&gt;
+&lt;li&gt;InfoQ's &lt;a href="http://twitter.com/mraible"&gt;Matt Raible&lt;/a&gt; also put together a nice look at &lt;a href="http://www.infoq.com/news/2014/07/springio-platform"&gt;Spring IO&lt;/a&gt;. Check it out!&lt;/li&gt;
+&lt;li&gt;The &lt;a href="http://literatejava.com/spring/explicit-vs-implicit-configuration-spring/"&gt;Literate Java blog&lt;/a&gt; has an interesting post on &lt;em&gt;implicit&lt;/em&gt; (component-scan-centric) vs. &lt;em&gt;explicit&lt;/em&gt; configuration (using XML) in Spring. I'd argue that Java configuration should really be considered as it offers the best of both explicit XML configuration (centralized, easy-to-reason about configuration) and implicit, but type-safe, Java annotation-and-component-scann-centric configuration. Either way, interesting post! &lt;/li&gt;
+&lt;li&gt;Spring Boot &lt;a href="http://www.thoughtworks.com/radar/#/languages-and-frameworks"&gt;is now in Thoughtwork's technology radar under &lt;em&gt;assess.&lt;/em&gt;&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;The Codeleak.pl site has a nice look at one of the &lt;a href="http://blog.codeleak.pl/2014/07/spring-4-cglib-based-proxy-classes-with-no-default-ctor.html"&gt;smaller, but super powerful, features in Spring 4  - CGLIB proxies no longer require a default constructor!&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;I've enjoyed this series of &lt;a href="http://www.youtube.com/watch?v=7iyNX2ycdyY"&gt;tutorials on using Spring and Angular.js&lt;/a&gt;. You might as well. Nice job, Christopher Henkel!&lt;/li&gt;
+&lt;li&gt;The Apprenticeship Notes blog has a nice &lt;em&gt;series&lt;/em&gt; of tutorials on how to use  &lt;a href="http://www.apprenticeshipnotes.org/2014/06/spring-mvc-thymeleaf-bootstrap-twitter.html"&gt;Spring MVC, Thymeleaf, and Bootstrap  together&lt;/a&gt;.    &lt;/li&gt;
+&lt;li&gt;The &lt;em&gt;Autoletics&lt;/em&gt; blog has a &lt;a href="http://www.autoletics.com/posts/an-allocation-reaction-within-reactor"&gt;nice, numbers-filled, look at their experience  profiling the Reactor project&lt;/a&gt;. Interesting stuff! Some of the points are interesting, too. As readers of this roundup know, &lt;a href="http://github.com/reactor"&gt;Reactor&lt;/a&gt; is a highly concurrent event-driven IO-ready platform. And, it's &lt;em&gt;ridiculously&lt;/em&gt; fast.   &lt;/li&gt;
+&lt;li&gt;I wanted to give a hat tip to &lt;a href="http://psnively.github.io/"&gt;Paul Snively&lt;/a&gt;, who has been using the 1-2 punch combo of the Spring  (and Scala) and a third-party &lt;a href="https://github.com/dgradecak/alfresco-mvc"&gt;integration of Spring MVC for Alfresco to build Alfresco-powered solutions&lt;/a&gt;. Nice!&lt;/li&gt; 
+&lt;li&gt; Whether you like the new Groovy website or not (although, why wouldn't you?), you'll  &lt;a href="http://glaforge.appspot.com/article/groovy-2-3-4-is-out"&gt;love the new Groovy 2.3.4 release&lt;/a&gt; which just dropped today and includes improvements on static compilation and AST transformations. &lt;/li&gt;
+
+&lt;li&gt;   &lt;a href="http://hornetq.jboss.org"&gt;HornetQ&lt;/a&gt;  project-lead Clebert Suconic is inviting community feedback about &lt;a href="http://activemq.2283324.n4.nabble.com/Possible-HornetQ-donation-to-ActiveMQ-td4682971.html"&gt;a proposed contribution of HornetQ to the Apache ActiveMQ project&lt;/a&gt;. We know that developers in our community know and use both, so perhaps now's a prudent time to feedback if this proposed merger affects you! I personally like the idea. ActiveMQ.next (long codenamed "Apollo") seems like it could use the hug that a HornetQ-contribution could give it. And, of course, Spring Boot supports both ActiveMQ and HornetQ now, so either way, you're set! &lt;/li&gt;
+
+&lt;/ol&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Session 1.0.0.M1 Released</title>
+    <link rel="alternate" href="https://spring.io/blog/2014/07/08/spring-session-1-0-0-m1-released" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Rob Winch</name>
+    </author>
+    <id>tag:spring.io,2014-07-08:1673</id>
+    <updated>2014-07-08T20:16:34Z</updated>
+    <content type="html">&lt;p&gt;I'm pleased to announce the release of &lt;a href="https://github.com/spring-projects/spring-session"&gt;Spring Session&lt;/a&gt; 1.0.0.M1. &lt;/p&gt;
+
+&lt;h1&gt;
+&lt;a name="user-content-benefits" class="anchor" href="#benefits" aria-hidden="true"&gt;&lt;span class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Benefits&lt;/h1&gt;
+
+&lt;p&gt;This project provides a number of &lt;a href="https://github.com/spring-projects/spring-session#benefits"&gt;benefits&lt;/a&gt; including:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Accessing a session from any environment (i.e. web, messaging infrastructure, etc)&lt;/li&gt;
+&lt;li&gt;In a web environment
+
+&lt;ul&gt;
+&lt;li&gt;Support for clustering in a vendor neutral way&lt;/li&gt;
+&lt;li&gt;Pluggable strategy for determining the session id&lt;/li&gt;
+&lt;li&gt;Easily keep the HttpSession alive when a WebSocket is active&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;&lt;h1&gt;
+&lt;a name="user-content-getting-started" class="anchor" href="#getting-started" aria-hidden="true"&gt;&lt;span class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Getting Started&lt;/h1&gt;
+
+&lt;p&gt;Refer to the &lt;a href="https://github.com/spring-projects/spring-session#quick-start"&gt;Quick Start&lt;/a&gt; section of the README to learn how to you can use Spring Session in your application.&lt;/p&gt;
+
+&lt;h1&gt;
+&lt;a name="user-content-feedback-please" class="anchor" href="#feedback-please" aria-hidden="true"&gt;&lt;span class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Feedback Please&lt;/h1&gt;
+
+&lt;p&gt;If you have feedback, I encourage you to reach out via &lt;a href="https://github.com/spring-projects/spring-session/issues"&gt;github issues&lt;/a&gt;, via the comments section, or ping me on twitter @rob_winch.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring IO Platform 1.0.1 released</title>
+    <link rel="alternate" href="https://spring.io/blog/2014/07/08/spring-io-platform-1-0-1-released" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Andy Wilkinson</name>
+    </author>
+    <id>tag:spring.io,2014-07-08:1672</id>
+    <updated>2014-07-08T19:48:19Z</updated>
+    <content type="html">&lt;p&gt;We are pleased to announce that the first maintenance release of Spring IO Platform has been released. It's available from both &lt;a href="http://repo.spring.io/release"&gt;repo.spring.io&lt;/a&gt; and &lt;a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3Aio.spring.platform"&gt;Maven Central&lt;/a&gt;. &lt;/p&gt;
+
+&lt;p&gt;This release upgrades the versions of a number of the projects in the Platform to pick up their latest maintenance releases:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Spring AMQP 1.3.5&lt;/li&gt;
+&lt;li&gt;Spring Boot 1.1.4&lt;/li&gt;
+&lt;li&gt;Spring Batch 3.0.1&lt;/li&gt;
+&lt;li&gt;Spring for Apache Hadoop 2.0.1&lt;/li&gt;
+&lt;li&gt;Spring Framework 4.0.6&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;&lt;a href="http://platform.spring.io/platform"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-io/platform"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-io/platform/issues"&gt;Issues&lt;/a&gt; | &lt;a href="http://docs.spring.io/platform/docs/1.0.1.RELEASE/reference/htmlsingle"&gt;Documentation&lt;/a&gt;&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Boot 1.1.4 released</title>
+    <link rel="alternate" href="https://spring.io/blog/2014/07/08/spring-boot-1-1-4-released" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Andy Wilkinson</name>
+    </author>
+    <id>tag:spring.io,2014-07-08:1670</id>
+    <updated>2014-07-08T10:30:22Z</updated>
+    <content type="html">&lt;p&gt;We are pleased to announce that Spring Boot 1.1.4 has been released and is available from &lt;a href="http://repo.spring.io/release"&gt;repo.spring.io&lt;/a&gt; and &lt;a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.springframework.boot%22"&gt;Maven Central&lt;/a&gt;. &lt;/p&gt;
+
+&lt;p&gt;This release addresses a number of bugs, adds support for the first stable release of Tomcat 8 (8.0.9), and also provides &lt;a href="http://docs.spring.io/spring-boot/docs/1.1.4.RELEASE/reference/htmlsingle/#boot-features-custom-log-levels"&gt;improved logging configuration&lt;/a&gt; that allows you to configure logging levels in &lt;code&gt;application.properties&lt;/code&gt; or &lt;code&gt;application.yaml&lt;/code&gt;. For a complete list of changes please refer to the &lt;a href="https://github.com/spring-projects/spring-boot/issues?milestone=19&amp;amp;state=closed"&gt;issue tracker&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Thanks again to everyone who has contributed to the project.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://projects.spring.io/spring-boot/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot/issues"&gt;Issues&lt;/a&gt; | &lt;a href="http://docs.spring.io/spring-boot/docs/1.1.4.RELEASE/reference/htmlsingle"&gt;Documentation&lt;/a&gt;&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring for Apache Hadoop 2.0.1 Released</title>
+    <link rel="alternate" href="https://spring.io/blog/2014/07/08/spring-for-apache-hadoop-2-0-1-released" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Thomas Risberg</name>
+    </author>
+    <id>tag:spring.io,2014-07-08:1671</id>
+    <updated>2014-07-08T09:52:00Z</updated>
+    <content type="html">&lt;p&gt;We are pleased to announce that Spring for Apache Hadoop 2.0.1 has just been released and is now available from &lt;a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.springframework.data%22%20%22hadoop%22"&gt;maven central&lt;/a&gt; and &lt;a href="http://repo.spring.io/release/org/springframework/data/spring-data-hadoop/"&gt;repo.spring.io&lt;/a&gt;. This release updates some dependency versions. The Apache Hadoop 2.4 support (hadoop24) is updated to use version 2.4.1. The Spring Framework version is updated to 4.0.6.RELEASE, Spring Batch updated to 3.0.1.RELEASE and Spring Boot updated to 1.1.4.RELEASE.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Framework 4.0.6 Released</title>
+    <link rel="alternate" href="https://spring.io/blog/2014/07/08/spring-framework-4-0-6-released" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Stéphane Nicoll</name>
+    </author>
+    <id>tag:spring.io,2014-07-08:1668</id>
+    <updated>2014-07-08T08:18:00Z</updated>
+    <content type="html">&lt;p&gt;We are pleased to announce that Spring Framework 4.0.6 has just been released and is now available from &lt;a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.springframework%22"&gt;maven central&lt;/a&gt; and &lt;a href="http://repo.spring.io/release/org/springframework/"&gt;repo.spring.io&lt;/a&gt;. This is a bugfix and minor enhancement release in the 4.0 series. This release includes nearly 50 bug fixes and improvements and we recommend that all users upgrade.&lt;/p&gt;
+
+&lt;p&gt;For a complete list of changes, please refer to &lt;a href="https://jira.spring.io/browse/SPR/fixforversion/14629"&gt;JIRA&lt;/a&gt;&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>SpringOne2GX 2013 Replay: Tooling for Spring's next generation</title>
+    <link rel="alternate" href="https://spring.io/blog/2014/07/03/springone2gx-2013-replay-tooling-for-spring-s-next-generation" />
+    <category term="news" label="News and Events" />
+    <author>
+      <name>Pieter Humphrey</name>
+    </author>
+    <id>tag:spring.io,2014-07-03:1666</id>
+    <updated>2014-07-03T15:29:00Z</updated>
+    <content type="html">&lt;p&gt;Tooling for Spring's next generation &lt;/p&gt;
+
+&lt;p&gt;Recorded at SpringOne2GX 2013 in Santa Clara, CA &lt;/p&gt;
+
+&lt;p&gt;Speakers: Andy Clement and Martin Lippert &lt;/p&gt;
+
+&lt;p&gt;The Spring Tool Suite (STS) is constantly evolving to keep pace with developments in Spring as well as the larger world of enterprise application development. This talk focuses on Eclipse-based tooling for the latest features throughout the Spring ecosystem. With plenty of live demos, we'll show you how to get productive quickly with Spring and STS. We''ll start with reviewing areas including XML-free Spring development and then look at early support for specific Spring's next generation features. We'll also demo the Eclipse support for Java 8 (also AspectJ support for Java 8) and spend some time looking at how this enhances your Spring development experience. In addition to the pure Java-based Spring programming, we will also cover the integration of the Groovy language tooling and show you how to program Spring apps in Groovy using the Spring Tool Suite. We will then dive into the details of the tooling to demonstrate a number of hidden gems that help you improve your productivity every day, like the built-in validations and best practices, quick-fixes, auto-completions, and automated refactorings. Last, but not least, we will review some of the performance improvements made recently in Spring Tool Suite. &lt;/p&gt;
+
+&lt;p&gt;Learn more about Spring Tool Suite at &lt;a href="http://spring.io/tools"&gt;http://spring.io/tools&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Learn more about Spring at &lt;a href="http://projects.spring.io/spring-framework"&gt;http://projects.spring.io/spring-framework&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;&lt;iframe width="560" height="315" src="//www.youtube.com/embed/reYgWdrwfyQ" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</content>
+  </entry>
+  <entry>
+    <title>SpringOne2GX 2013 Replay: Performance - tuning the Spring Petclinic sample application</title>
+    <link rel="alternate" href="https://spring.io/blog/2014/07/03/springone2gx-2013-replay-performance-tuning-the-spring-petclinic-sample-application" />
+    <category term="news" label="News and Events" />
+    <author>
+      <name>Pieter Humphrey</name>
+    </author>
+    <id>tag:spring.io,2014-07-03:1665</id>
+    <updated>2014-07-03T15:22:00Z</updated>
+    <content type="html">&lt;p&gt;Recorded at SpringOne2GX 2013 in Santa Clara, CA.&lt;/p&gt;
+
+&lt;p&gt;Speaker: Julien Dubios &lt;/p&gt;
+
+&lt;p&gt;This talk is a live version of my blog posts on performance-tuning the Spring Petclinic application: &lt;a href="http://blog.ippon.fr/tag/spring-petclinic/"&gt;http://blog.ippon.fr/tag/spring-petclinic/&lt;/a&gt; We will talk about JVM locks, Web application performance best practices, JDBC vs JPA, and caching We will see how to use effectively tools such as JMeter, Yourkit and Intellij IDEA to quickly solve performance issues We will also explain the methodology used, so you can follow the same steps on your own applications In this session we will talk about :     &lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Stress tests&lt;/li&gt;
+  &lt;li&gt; Memory leaks&lt;/li&gt;
+  &lt;li&gt; Garbage Collection&lt;/li&gt;
+  &lt;li&gt; Profiling tools&lt;/li&gt;
+  &lt;li&gt; Application Server tuning     &lt;/li&gt;
+  &lt;li&gt;JVM tuning     &lt;/li&gt;
+  &lt;li&gt;Locks     &lt;/li&gt;
+  &lt;li&gt;JDBC vs JPA &lt;/li&gt;
+  &lt;li&gt;Lazy loading&lt;/li&gt;
+  &lt;li&gt; Caching&lt;/li&gt;
+  &lt;li&gt; And much more ! &lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;Learn more about Spring at &lt;a href="http://projects.spring.io/spring-framework"&gt;http://projects.spring.io/spring-framework&lt;/a&gt;&lt;/p&gt;
+
+&lt;iframe width="560" height="315" src="//www.youtube.com/embed/oR_7EtCgc1M" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Social Facebook 2.0.0.M1 Released</title>
+    <link rel="alternate" href="https://spring.io/blog/2014/07/03/spring-social-facebook-2-0-0-m1-released" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Craig Walls</name>
+    </author>
+    <id>tag:spring.io,2014-07-03:1663</id>
+    <updated>2014-07-03T12:43:00Z</updated>
+    <content type="html">&lt;p&gt;Dear Spring Community,&lt;/p&gt;
+
+&lt;p&gt;I'm pleased to announce the first milestone release of Spring Social Facebook 2.0.0. The primary focus of this release was to update the API binding to target version 2.0 of Facebook's Graph API. &lt;/p&gt;
+
+&lt;p&gt;Note that due to breaking changes in Facebook's Graph API, there were necessarily some breaking changes in this version of Spring Social Facebook. Fortunately, however, Facebook has promised a two-year stability guarantee for all versions of their API, so such breaking changes should be able to be handled more gracefully going forward.&lt;/p&gt;
+
+&lt;p&gt;Facebook is requiring all applications registered after April 30, 2014 to use v2.0 of the Graph API (older applications are allowed to use either v1.0 or v2.0 until April 30, 2015). Therefore, if you are building a new Facebook-enabled application with Spring Social, you'll likely want to look at this release, as there are some operations in Spring Social Facebook 1.1.x's API binding that will not work.&lt;/p&gt;
+
+&lt;p&gt;Although each method in the API binding was tested directly against Facebook Graph API v2.0, it's very possible that something was overlooked. I invite the Spring Social community to try out this release and provide feedback in the form of &lt;a href="https://jira.spring.io/browse/SOCIALFB"&gt;improvement and bug issues&lt;/a&gt;.&lt;/p&gt;</content>
+  </entry>
+</feed>
+

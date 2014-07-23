@@ -1,0 +1,5 @@
+INDEX VERSION 1.127
+C:\Users\andrei.puf\Desktop\gitRepositories\Test\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1426362482.index
+\SpringMVC\src\main\java
+C:\Users\andrei.puf\Desktop\gitRepositories\Test\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\771299036.index
+\SpringMVC\src\main\java
